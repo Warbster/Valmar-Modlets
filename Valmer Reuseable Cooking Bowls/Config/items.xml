@@ -50,8 +50,8 @@
             <property name="Rot" value="90,45,0" />
         </property>
 		<effect_group tiered="false">
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="0"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="2"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="3"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="0"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
@@ -68,24 +68,27 @@
         <property name="Material" value="Morganic" />
         <property name="HoldType" value="3" />
         <property name="Weight" value="12" />
-        <property name="Group" value="Food/Cooking" />
         <property name="CraftingIngredientTime" value="15" />
         <property class="Action1">
             <property name="Class" value="Eat" />
             <property name="Delay" value="1" />
             <property name="Use_time" value="..." />
-            <property name="Gain_health" value="0" />
-            <property name="Gain_stamina" value="20" />
-            <property name="Gain_food" value="0" />
-            <property name="Gain_water" value="20" />
             <property name="Sound_start" value="UseActions/player_drinking" />
             <property name="Create_item" value="bowl" />
         </property>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+		<property name="Group" value="Food/Cooking" />
+        
+       <effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="2"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="2"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffIllFoodPoisoning01">
+			<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
+		</triggered_effect>
+	</effect_group>
     </item>
 	<item name="cornBread">
 	<property name="CustomIcon" value="foodCornBread"/>
@@ -98,12 +101,12 @@
 	<property name="Material" value="Morganic"/>
 	<property name="Stacknumber" value="10"/> <!-- STK food -->
 	<property name="EconomicValue" value="16"/>
-	<property name="UnlockedBy" value="perkMasterChef,foodCornBreadSchematic"/>
 	<property class="Action0">
 		<property name="Class" value="Eat"/>
 		<property name="Delay" value="1.0"/>
 		<property name="Use_time" value="..."/>
 		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="dinnerPlate" />
 		<!-- jar from cooking food <property name="Create_item" value="drinkJarEmpty"/> -->
 	</property>
 	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
@@ -131,12 +134,13 @@
 	<property name="Material" value="Morganic"/>
 	<property name="Stacknumber" value="10"/> <!-- STK food -->
 	<property name="EconomicValue" value="20"/>
-	<property name="UnlockedBy" value="perkMasterChef,foodCornOnTheCobSchematic"/>
+	
 	<property class="Action0">
 		<property name="Class" value="Eat"/>
 		<property name="Delay" value="1.0"/>
 		<property name="Use_time" value="..."/>
 		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="dinnerPlate" />
 		<!-- jar from cooking food <property name="Create_item" value="drinkJarEmpty"/> -->
 	</property>
 	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
@@ -169,6 +173,7 @@
 		<property name="Delay" value="2.0"/>
 		<property name="Use_time" value="..."/>
 		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="dinnerPlate" />
 		<!-- jar from cooking food <property name="Create_item" value="drinkJarEmpty"/> -->
 	</property>
 	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
@@ -196,12 +201,12 @@
 	<property name="Material" value="Morganic"/>
 	<property name="Stacknumber" value="10"/> <!-- STK food -->
 	<property name="EconomicValue" value="134"/>
-	<property name="UnlockedBy" value="perkMasterChef,foodMeatStewSchematic"/>
 	<property class="Action0">
 		<property name="Class" value="Eat"/>
 		<property name="Delay" value="1.0"/>
 		<property name="Use_time" value="..."/>
 		<property name="Sound_start" value="player_drinking"/>
+		<property name="Create_item" value="bowl" />
 		<!-- jar from cooking food <property name="Create_item" value="drinkJarEmpty"/> -->
 	</property>
 	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
@@ -230,12 +235,12 @@
 	<property name="Material" value="Morganic"/>
 	<property name="Stacknumber" value="10"/> <!-- STK food -->
 	<property name="EconomicValue" value="102"/>
-	<property name="UnlockedBy" value="perkMasterChef,foodVegetableStewSchematic"/>
 	<property class="Action0">
 		<property name="Class" value="Eat"/>
 		<property name="Delay" value="1.0"/>
 		<property name="Use_time" value="..."/>
 		<property name="Sound_start" value="player_drinking"/>
+		<property name="Create_item" value="bowl" />
 		<!-- jar from cooking food <property name="Create_item" value="drinkJarEmpty"/> -->
 	</property>
 	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
@@ -264,12 +269,12 @@
 	<property name="Material" value="Morganic"/>
 	<property name="Stacknumber" value="10"/> <!-- STK food -->
 	<property name="EconomicValue" value="72"/>
-	<property name="UnlockedBy" value="perkMasterChef,foodBaconAndEggsSchematic"/>
 	<property class="Action0">
 		<property name="Class" value="Eat"/>
 		<property name="Delay" value="2.1"/>
 		<property name="Use_time" value="..."/>
 		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="dinnerPlate" />
 	</property>
 	<property name="Smell" value="largeSmell"/>
 	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
@@ -297,19 +302,18 @@
 	<property name="Material" value="Morganic"/>
 	<property name="Stacknumber" value="10"/> <!-- STK food -->
 	<property name="EconomicValue" value="52"/>
-	<property name="UnlockedBy" value="perkMasterChef,foodBoiledMeatSchematic"/>
 	<property class="Action0">
 		<property name="Class" value="Eat"/>
 		<property name="Delay" value="2.1"/>
 		<property name="Use_time" value="..."/>
 		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl" />
 		<!-- jar from cooking food <property name="Create_item" value="drinkJarEmpty"/> -->
 	</property>
 	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 
 	<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="10"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 
@@ -321,27 +325,26 @@
 	</effect_group>
 </item>
     <item name="blueberryJam">
-        <property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab" />
-        <property name="DescriptionKey" value="blueberryJamDesc"/>
-        <property name="Material" value="Mglass" />
-        <property name="HoldType" value="3" />
-        <property name="Weight" value="12" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1" />
-            <property name="Use_time" value="..." />
-            <property name="Sound_start" value="UseActions/player_eating" />
-            <property name="Create_item" value="emptyJar" />
-        </property>
-        <property class="Preview">
-            <property name="Zoom" value="23" />
-            <property name="Pos" value="0.18,-0.15" />
-            <property name="Rot" value="0,-45,0" />
-        </property>
-		<effect_group tiered="false">
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="45"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="22"/>
+        <property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="124"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		 <property name="Create_item" value="drinkJarEmpty" />
+		<!-- jar from cooking food <property name="Create_item" value="drinkJarEmpty"/> -->
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+           
+       	<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="8"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="2"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
@@ -352,124 +355,102 @@
 	</effect_group>
 	</item>
     <item name="canChunkyMeatStew">
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="cannedFoodDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="3" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Sound_start" value="UseActions/player_eating" />
-            <property name="Create_item" value="canEmpty" />
-        </property>
-        <property class="Preview">
-            <property name="Zoom" value="24" />
-            <property name="Pos" value="-0.02,-0.1" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+        <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="drinkCanEmpty"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="25"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="20"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="8"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
-
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffIllFoodPoisoning01">
-			<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
-		</triggered_effect>
 	</effect_group>
     </item>
 	<item name="canMeatStew">
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="cannedFoodDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="3" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Sound_start" value="UseActions/player_eating" />
-            <property name="Create_item" value="canEmpty" />
-        </property>
-        <property class="Preview">
-            <property name="Zoom" value="24" />
-            <property name="Pos" value="-0.02,-0.1" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="drinkCanEmpty"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="20"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="50"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="25"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
-
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffIllFoodPoisoning01">
-			<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
-		</triggered_effect>
 		</effect_group>
     </item>
     <item name="canVegetableStew">
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="cannedFoodDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="3" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Sound_start" value="UseActions/player_eating" />
-            <property name="Create_item" value="canEmpty" />
-        </property>
-        <property class="Preview">
-            <property name="Zoom" value="24" />
-            <property name="Pos" value="-0.02,-0.1" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="drinkCanEmpty"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="20"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="50"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="25"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
-
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffIllFoodPoisoning01">
-			<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
-		</triggered_effect>
 		</effect_group>
     </item>
     <item name="stewChunkyMeat">
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="stewChunkyMeatDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-        <property name="Buff" value="buffstewWarming" />
-		</property>
-        <property name="Smell" value="largeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="20"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="50"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="25"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
@@ -480,28 +461,27 @@
 		</effect_group>
     </item>
     <item name="bowlFruit">
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="bowlFruitDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_eating" />
-        </property>
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="DisplayType" value="foodWaterOnly"/>
+	<property name="HoldType" value="31"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="MresourceCrop"/>
+	<property name="Stacknumber" value="125"/> <!-- STK food -->
+	<property name="EconomicValue" value="6"/>
+	<property name="EconomicBundleSize" value="1"/>
+	<property name="SellableToTrader" value="false"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="10"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="0"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="25"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="7"/><display_value name="dFoodPoisoningRisk" value=".07"/> <!-- raw2 -->
@@ -512,23 +492,22 @@
 	</effect_group>
     </item>
     <item name="cornbreadJam">
-        <property name="DescriptionKey" value="cornbreadJamDesc"/>
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="HandMeshfile" value="#Other/Items?Misc/parcelPrefab.prefabHandPrefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="15" />
-        <property class="Action1">
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Sound_start" value="UseActions/player_eating" />
-        </property>
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="25" />
-            <property name="Pos" value="0,-0.05" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="16"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="drinkJarEmpty"/> 
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="4"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="2"/>
@@ -542,27 +521,26 @@
 	</effect_group>
     </item>
     <item name="soupChunkyBeef">
-        <property name="CraftingIngredientTime" value="15" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="soupDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-        </property>
-        <property name="Smell" value="largeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+	<property name="CraftingIngredientTime" value="15" />
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -575,26 +553,25 @@
     </item>
     <item name="soupChicken">
         <property name="CraftingIngredientTime" value="15" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="soupDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-        </property>
-        <property name="Smell" value="largeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+        <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -607,26 +584,25 @@
     </item>
     <item name="soupLamb">
         <property name="CraftingIngredientTime" value="15" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="soupDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-        </property>
-        <property name="Smell" value="largeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -639,29 +615,27 @@
     </item>
     <item name="bowlChili">
         <property name="CraftingIngredientTime" value="15" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <!--      <property name="CustomIcon" value="vegetableStew" /><property name="CustomIconTint" value="E82549" /> -->
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-        </property>
-        <property name="Smell" value="largeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+        <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="subtract" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="1"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
@@ -672,27 +646,25 @@
     </item>
     <item name="bowlMiso">
         <property name="CraftingIngredientTime" value="15" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="soupDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-        </property>
-        <property name="Smell" value="largeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="5"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -705,26 +677,25 @@
     </item>
     <item name="soupPea">
         <property name="CraftingIngredientTime" value="15" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="soupDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-        </property>
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+        <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="5"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -737,25 +708,23 @@
     </item>
     <item name="bowlPasta">
         <property name="CraftingIngredientTime" value="15" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <!--      <property name="CustomIcon" value="vegetableStew" /><property name="CustomIconTint" value="AB4100" /> -->
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_eating" />
-        </property>
-        <property name="Smell" value="largeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+        <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
@@ -769,28 +738,26 @@
     </item>
     <item name="bowlSoup">
         <property name="CraftingIngredientTime" value="15" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="soupDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />  
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-        </property>
-        <property name="Smell" value="largeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+        <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="15"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="20"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
@@ -802,26 +769,25 @@
     </item>
     <item name="bowlStock">
         <property name="CraftingIngredientTime" value="15" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="DescriptionKey" value="soupDesc"/>
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-        </property>
-        <property name="Smell" value="largeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+        <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="5"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -834,26 +800,25 @@
     </item>
     <item name="creamedCorn">
         <property name="CraftingIngredientTime" value="15" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-        </property>
-        <property name="Smell" value="smallSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="20"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+		<!-- jar from cooking food <property name="Create_item" value="drinkJarEmpty"/> -->
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="1"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -866,26 +831,25 @@
     </item>
     <item name="soupMushroom">
         <property name="CraftingIngredientTime" value="15" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-        </property>
-        <property name="Smell" value="smallSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="5"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -897,56 +861,55 @@
 	</effect_group>
     </item>
     <item name="Mead">
-        <property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab" />
-        <property name="Material" value="Mglass" />
-        <property name="HoldType" value="3" />
-        <property name="Weight" value="12" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1" />
-            <property name="Use_time" value="..." />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-            <property name="Create_item" value="emptyJar" />
-            <property name="Buff" value="DrinkBeer" />
-        </property>
-        <property class="Preview">
-            <property name="Zoom" value="23" />
-            <property name="Pos" value="0.18,-0.15" />
-            <property name="Rot" value="0,-45,0" />
-        </property>
-		<effect_group tiered="false">
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffIllFoodPoisoning01">
-			<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
-			</triggered_effect>
-	</effect_group>
+       <property name="HoldType" value="3"/>
+	<property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mglass"/>
+	<property name="Weight" value="10"/>
+	<property name="Stacknumber" value="10"/> <!-- STK resource -->
+	<property name="EconomicValue" value="500"/>
+	<property name="DisplayType" value="waterGrandpasMoonshine"/>
+	<property name="Group" value="Food/Cooking,CFDrink/Cooking"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_drinking"/>
+		<property name="Create_item" value="drinkJarEmpty"/>
+	</property>
+	<effect_group tiered="false">
+		<display_value name="dFortitude" value="2"/>
+		<display_value name="dEntityDamage" value="4"/>
+		<display_value name="dStunResist" value="1"/>
+		<display_value name="dHealthLoss" value=".5"/>
+		<display_value name="dHealthAmount" value="600"/>
+		<display_value name="dStaminaRegen" value=".7"/>
+		<display_value name="dDuration" value="30"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="15"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="10"/>
+			<requirement name="CVarCompare" cvar="$buffGrandpasMoonshineDuration" operation="GT" value="93"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrunkGrandpasMoonshine"/>
+		</effect_group>
     </item>
     <item name="meadBlueberry">
-        <property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab" />
-        <property name="Material" value="Mglass" />
-        <property name="HoldType" value="3" />
-        <property name="Weight" value="12" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1" />
-            <property name="Use_time" value="..." />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-            <property name="Create_item" value="emptyJar" />
-            <property name="Buff" value="DrinkBeer" />
-        </property>
-        <property class="Preview">
-            <property name="Zoom" value="23" />
-            <property name="Pos" value="0.18,-0.15" />
-            <property name="Rot" value="0,-45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="124"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="drinkJarEmpty"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
@@ -957,28 +920,27 @@
 	</effect_group>
     </item>
     <item name="warmsoupChunkyBeef">
-        <property name="DescriptionKey" value="warmBowlDesc"/>
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
+	<property name="DescriptionKey" value="warmBowlDesc"/>
+    <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/>
         <property name="Buff" value="buffstewWarming" />
-		 </property>
-        <property name="Smell" value="exLargeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+		<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -991,27 +953,26 @@
     </item>
     <item name="warmsoupChicken">
         <property name="DescriptionKey" value="warmBowlDesc"/>
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-            <property name="Buff" value="buffstewWarming" />
-			</property>
-        <property name="Smell" value="exLargeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+        <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/>
+        <property name="Buff" value="buffstewWarming" />
+		<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -1023,28 +984,27 @@
 	</effect_group>
     </item>
     <item name="warmsoupLamb">
-        <property name="DescriptionKey" value="warmBowlDesc"/>
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-            <property name="Buff" value="buffstewWarming" />
-			</property>
-        <property name="Smell" value="exLargeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="DescriptionKey" value="warmBowlDesc"/>
+    <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/>
+        <property name="Buff" value="buffstewWarming" />
+		<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -1056,28 +1016,27 @@
 	</effect_group>
     </item>
     <item name="warmbowlChili">
-        <property name="DescriptionKey" value="warmBowlDesc"/>
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-            <property name="Buff" value="buffstewWarming" />
-			</property>
-        <property name="Smell" value="exLargeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="DescriptionKey" value="warmBowlDesc"/>
+    <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/>
+        <property name="Buff" value="buffstewWarming" />
+		<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -1089,28 +1048,27 @@
 	</effect_group>
     </item>
     <item name="warmbowlMiso">
-        <property name="DescriptionKey" value="warmBowlDesc"/>
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-            <property name="Buff" value="buffstewWarming" />
-			</property>
-        <property name="Smell" value="largeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="DescriptionKey" value="warmBowlDesc"/>
+    <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/>
+        <property name="Buff" value="buffstewWarming" />
+		<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -1123,25 +1081,26 @@
     </item>
     <item name="warmsoupPea">
         <property name="DescriptionKey" value="warmBowlDesc"/>
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-            <property name="Buff" value="buffstewWarming" />
-			</property>
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+    <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/>
+        <property name="Buff" value="buffstewWarming" />
+		<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -1154,25 +1113,24 @@
     </item>
     <item name="warmbowlPasta">
         <property name="DescriptionKey" value="warmBowlDesc"/>
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_eating" />
-            <property name="Buff" value="buffstewWarming" />
-			</property>
-        <property name="Smell" value="exLargeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+    <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/>
+        <property name="Buff" value="buffstewWarming" />
+		<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
@@ -1186,27 +1144,26 @@
     </item>
     <item name="warmbowlSoup">
         <property name="DescriptionKey" value="warmBowlDesc"/>
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-            <property name="Buff" value="buffstewWarming" />
-			</property>
-        <property name="Smell" value="exLargeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+    <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/>
+        <property name="Buff" value="buffstewWarming" />
+		<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="10"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -1218,28 +1175,27 @@
 	</effect_group>
     </item>
     <item name="warmbowlStock">
-        <property name="DescriptionKey" value="warmBowlDesc"/>
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Create_item" value="bowl" />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-            <property name="Buff" value="buffstewWarming" />
-			</property>
-        <property name="Smell" value="exLargeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="30" />
-            <property name="Pos" value="0,-0.03" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="DescriptionKey" value="warmBowlDesc"/>
+    <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mmetal"/>
+	<property name="Weight" value="5"/>
+	<property name="EconomicValue" value="60"/>
+	<property name="Stacknumber" value="10"/>
+        <property name="Buff" value="buffstewWarming" />
+		<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1.0"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="bowl"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="1"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
@@ -1251,23 +1207,22 @@
 	</effect_group>
     </item>
     <item name="honeyHam">
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="31" />
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="2.1" />
-            <property name="Use_time" value="..." />
-            <property name="Sound_start" value="UseActions/player_eating" />
-        </property>
-        <property name="Smell" value="mediumSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="5" />
-            <property name="Pos" value="0,-1" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="24"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="2.1"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="dinnerPlate"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
@@ -1281,23 +1236,23 @@
     </item>
     <item name="scrambledEggs">
         <property name="CraftingIngredientTime" value="3" />
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="31" />
-		<property name="Create_item" value="dinnerPlate" />
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Sound_start" value="UseActions/player_eating" />
-        </property>
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="25" />
-            <property name="Pos" value="0,-0.05" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="72"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="2.1"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="dinnerPlate"/>
+	</property>
+	<property name="Smell" value="largeSmell"/>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
@@ -1310,23 +1265,23 @@
 	</effect_group>
     </item>
     <item name="Omelet">
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="23" />
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Use_time" value="..." />
-            <property name="Sound_start" value="UseActions/player_eating" />
-			<property name="Create_item" value="dinnerPlate" />
-        </property>
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="25" />
-            <property name="Pos" value="0,-0.05" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="72"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="2.1"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="dinnerPlate"/>
+	</property>
+	<property name="Smell" value="largeSmell"/>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
@@ -1340,52 +1295,49 @@
     </item>
     <item name="drinkEnergy">
         <property name="DescriptionKey" value="drinkEnergyDesc"/>
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Mglass" />
-        <property name="HoldType" value="3" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1" />
-            <property name="Use_time" value="..." />
-            <property name="Sound_start" value="UseActions/player_drinking" />
-            <property name="Debuff" value="dysentery" />
-        </property>
-        <property class="Preview">
-            <property name="Zoom" value="23" />
-            <property name="Pos" value="0.18,-0.15" />
-            <property name="Rot" value="0,-45,0" />
-        </property>
-		<effect_group tiered="false">
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$waterAmountAdd" operation="add" value="25"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="0"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="50"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="4"/><display_value name="dFoodPoisoningRisk" value=".04"/> <!-- FP cooked -->
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
-		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffIllFoodPoisoning01">
-			<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
-			</triggered_effect>
+        <property name="HoldType" value="3"/>
+	<property name="Meshfile" value="#Other/Items?Food/bottled_waterPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Mglass"/>
+	<property name="Weight" value="10"/>
+	<property name="Stacknumber" value="10"/> <!-- STK resource -->
+	<property name="EconomicValue" value="48"/>
+	<property name="DisplayType" value="waterGrandpasLearningElixir"/>
+	<property name="Group" value="Food/Cooking,CFDrink/Cooking"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="1"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_drinking"/>
+		<property name="Create_item" value="drinkJarEmpty"/>
+	</property>
+	<effect_group tiered="false">
+		<display_value name="dPlayerExpGain" value=".2"/>
+		<display_value name="dDuration" value="243"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffMegaCrushDuration" operation="add" value="243"/>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffMegaCrushDuration" operation="set" value="723">
+			<requirement name="CVarCompare" cvar="$buffGrandpasLearningElixirDuration" operation="GT" value="723"/></triggered_effect>
+		<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffMegaCrush"/>
 	</effect_group>
     </item>
     <item name="baconEggSandwich">
-        <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-        <property name="Material" value="Morganic" />
-        <property name="HoldType" value="21" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Action1">
-            <!-- UseAction -->
-            <property name="Class" value="Eat" />
-            <property name="Delay" value="1.0" />
-            <property name="Sound_start" value="UseActions/player_eating" />
-			<property name="Create_item" value="dinnerPlate" />
-        </property>
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-            <property name="Zoom" value="25" />
-            <property name="Pos" value="0,-0.05" />
-            <property name="Rot" value="90,45,0" />
-        </property>
+       <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="72"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="2.1"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="dinnerPlate"/>
+	</property>
+	<property name="Smell" value="largeSmell"/>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
@@ -1398,19 +1350,22 @@
 	</effect_group>
     </item>
 	<item name="grillSteak">
-    <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-    <property name="Material" value="Morganic" />
-    <property name="HoldType" value="31" />
-    <property name="Stacknumber" value="50" /> <!-- STK food -->
-    <property class="Action1">
-        <property name="Class" value="Eat" />
-        <property name="Delay" value="2.1" />
-        <property name="Use_time" value="..." />
-        <property name="Sound_start" value="UseActions/player_eating" />
-		<property name="Create_item" value="dinnerPlate" />
-    </property>
-    <property name="Smell" value="exLargeSmell" />
-    <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+    <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="24"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="2.1"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="dinnerPlate"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 	<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
@@ -1427,7 +1382,7 @@
     <property name="Material" value="Morganic" />
     <property name="HoldType" value="31" />
     <property name="Stacknumber" value="50" /> <!-- STK food -->
-    <property class="Action1">
+    <property class="Action0">
         <property name="Class" value="Eat" />
         <property name="Delay" value="2.1" />
         <property name="Use_time" value="..." />
@@ -1452,18 +1407,15 @@
     <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
     <property name="Material" value="Morganic" />
     <property name="HoldType" value="31" />
-    <property class="Action1">
+    <property class="Action0">
         <property name="Class" value="Eat" />
         <property name="Delay" value="1.0" />
         <property name="Use_time" value="..." />
         <property name="Sound_start" value="UseActions/player_eating" />
+		<property name="Create_item" value="dinnerPlate" />
     </property>
         <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-        <property name="Zoom" value="25" />
-        <property name="Pos" value="0,-0.05" />
-        <property name="Rot" value="90,45,0" />
-        </property>
+      
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
@@ -1476,23 +1428,23 @@
 	</effect_group>
     </item>
 <item name="mealBreakfast">
-    <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-    <property name="Material" value="Morganic" />
-    <property name="HoldType" value="31" />
-    <property class="Action1">
-        <property name="Class" value="Eat" />
-        <property name="Delay" value="1.0" />
-        <property name="Use_time" value="..." />
-        <property name="Sound_start" value="UseActions/player_eating" />
-        <property name="Create_item" value="dinnerPlate" />
-    </property>
-    <property name="Smell" value="exLargeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-        <property name="Zoom" value="25" />
-        <property name="Pos" value="0,-0.05" />
-        <property name="Rot" value="90,45,0" />
-        </property>
+   <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="72"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="2.1"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="dinnerPlate" />
+	</property>
+	<property name="Smell" value="largeSmell"/>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
@@ -1505,23 +1457,23 @@
 	</effect_group>
     </item>
 <item name="mealDinner">
-    <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-    <property name="Material" value="Morganic" />
-    <property name="HoldType" value="31" />
-    <property class="Action1">
-        <property name="Class" value="Eat" />
-        <property name="Delay" value="1.0" />
-        <property name="Use_time" value="..." />
-        <property name="Sound_start" value="UseActions/player_eating" />
-        <property name="Create_item" value="dinnerPlate" />
-    </property>
-    <property name="Smell" value="exLargeSmell" />
-        <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
-        <property class="Preview">
-        <property name="Zoom" value="25" />
-        <property name="Pos" value="0,-0.05" />
-        <property name="Rot" value="90,45,0" />
-        </property>
+     <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="food"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="72"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="2.1"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
+		<property name="Create_item" value="dinnerPlate" />
+	</property>
+	<property name="Smell" value="largeSmell"/>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 		<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
@@ -1547,19 +1499,22 @@
     </property>
     </item>
 <item name="steakSandwich">
-    <property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab" />
-    <property name="Material" value="Morganic" />
-    <property name="HoldType" value="31" />
-    <property name="Stacknumber" value="50" /> <!-- STK food -->
-    <property class="Action1">
-        <property name="Class" value="Eat" />
-        <property name="Delay" value="2.1" />
-        <property name="Use_time" value="..." />
-        <property name="Sound_start" value="UseActions/player_eating" />
+   <property name="Tags" value="food"/>
+	<property name="HoldType" value="31"/>
+	<property name="DisplayType" value="foodWaterNegative"/>
+	<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+	<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+	<property name="Material" value="Morganic"/>
+	<property name="Stacknumber" value="10"/> <!-- STK food -->
+	<property name="EconomicValue" value="20"/>
+	<property class="Action0">
+		<property name="Class" value="Eat"/>
+		<property name="Delay" value="2.1"/>
+		<property name="Use_time" value="..."/>
+		<property name="Sound_start" value="player_eating"/>
 		<property name="Create_item" value="dinnerPlate" />
-    </property>
-    <property name="Smell" value="exLargeSmell" />
-    <property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+	</property>
+	<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 	<effect_group tiered="false">
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="15"/>
 		<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="7"/>
