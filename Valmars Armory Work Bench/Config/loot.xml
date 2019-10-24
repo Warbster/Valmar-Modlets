@@ -18,7 +18,7 @@
 <append xpath="/lootcontainers/lootgroup[@name='sportingGoods']">	
 		<item name="sewingKit" count="1" />
 </append>
-<append xpath="/lootcontainers/lootgroup[@name='backpacks']">	
+<append xpath="/lootcontainers/lootgroup[@name='backpacks/survival']">	
 		<item name="sewingKit" count="1" />
 </append>
 
