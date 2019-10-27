@@ -95,6 +95,30 @@
         <ingredient name="resourceCloth" count="5" />
         <ingredient name="resourceScrapLead" count="1" />
     </recipe>
+	
+	<recipe name="apparelPlantFiberGloves" count="1">
+	<ingredient name="resourceYuccaFibers" count="5"/>
+</recipe>
+
+<recipe name="apparelPlantFiberHat" count="1">
+	<ingredient name="resourceYuccaFibers" count="5"/>
+</recipe>
+
+<recipe name="apparelPlantFiberHood" count="1">
+	<ingredient name="resourceYuccaFibers" count="5"/>
+</recipe>
+
+<recipe name="apparelPlantFiberPants" count="1">
+	<ingredient name="resourceYuccaFibers" count="5"/>
+</recipe>
+
+<recipe name="apparelPlantFiberShirt" count="1">
+	<ingredient name="resourceYuccaFibers" count="5"/>
+</recipe>
+
+<recipe name="apparelPlantFiberShoes" count="1">
+	<ingredient name="resourceYuccaFibers" count="5"/>
+</recipe>
 </append>
 
 </Valmar>
