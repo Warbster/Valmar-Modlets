@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xml>
     <ModInfo>
-        <Name value="Stallionsdens Whisperers" />
-        <Description value="Adds clothing that lets you walk with the zs." />
-        <Author value="Stallionsden" />
+        <Name value="Valmars Dye Station - Colour your armors" />
+        <Description value="Allows you to make diffenrent colooured armor" />
+        <Author value="Valmar" />
         <Version value="A18" />
     </ModInfo>
 </xml>
