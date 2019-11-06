@@ -1,0 +1,332 @@
+<Valmar>
+	<append xpath="/blocks">
+	          <block name="LeurreZombie1">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardFeralRagdoll" />
+    <drop event="Destroy" count="0" />
+    <property name="PlaceAltBlockValue" value="LeurreZombie1,LeurreZombie2,LeurreZombie3,LeurreZombie4,LeurreZombie5,LeurreZombie6,LeurreZombie7,LeurreZombie8,LeurreZombie9,LeurreZombie10,LeurreZombie11,LeurreZombie12,LeurreZombie13,LeurreZombie14,LeurreZombie15,LeurreZombie16,LeurreZombie17,LeurreZombie18,LeurreZombie19,LeurreZombie20,LeurreZombie21,LeurreZombie22,LeurreZombie23,LeurreZombie24,LeurreZombie25,LeurreZombie26,LeurreZombie27,LeurreZombie28,LeurreZombie29,LeurreZombie30,LeurreZombie31" />
+  </block>
+  <block name="LeurreZombie2">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardBoeRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie3">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardFootballRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie4">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardFatLadyZRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie5">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardJoeRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie6">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardMoeRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie7">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardArleneRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie8">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardLabRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie9">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardScreamerRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie10">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardDarleneRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie11">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardMarleneRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie12">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardYoRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie13">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardSteveRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie14">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardSteveRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie15">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardSuitRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie16">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardSnowRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie17">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardSpiderRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie18">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardBurntRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+   <block name="LeurreZombie19">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardNurseRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreZombie20">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardHawaiianRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+    <block name="LeurreZombie21">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardCopRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+    <block name="LeurreZombie22">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardHazmatRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+    <block name="LeurreZombie23">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardWorkerRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+    <block name="LeurreZombie24">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardSoldierRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+    <block name="LeurreZombie25">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardDemolitionRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+   <block name="LeurreZombie26">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardHoodieRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+     <block name="LeurreZombie27">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardCheerleaderRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+    <block name="LeurreZombie28">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardOldTimerRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+    <block name="LeurreZombie29">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardBikerRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+    <block name="LeurreZombie30">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardFarmerRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+    <block name="LeurreZombie31">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieStandardStripperRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+    
+  <block name="LeurreAnimal1">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Animals/Stag/STAG" />
+    <property name="PlaceAltBlockValue" value="LeurreAnimal1,LeurreAnimal2,LeurreAnimal3,LeurreAnimal4,LeurreAnimal5" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreAnimal2">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Zombies/zombieDogPrefab" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreAnimal3">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Animals/Boar/BOAR" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreAnimal4">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Animals/Pig/PIG" />
+    <drop event="Destroy" count="0" />
+  </block>
+  <block name="LeurreAnimal5">
+    <property name="Class" value="UpgradeRated" />
+    <property name="UpgradeRated.ToBlock" value="air" />
+    <property name="UpgradeRated.Rate" value="5" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+        <property name="Model" value="Entities/Animals/Vulture/animalVultureStandardRagdoll" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+	</append>	
+</Valmar>
