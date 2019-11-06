@@ -1,0 +1,142 @@
+<Valmar>
+<append xpath="/blocks">
+	<block name="Pig Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/Pig/PIG" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  
+  	<block name="Stag Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/Stag/STAG" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  	<block name="Rabbit Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/Rabbit/RABBIT" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  	<block name="Chicken Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/CHICKEN/chickenPrefab" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  <block name="Snake Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/Snake/snake_Prefab" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  	<block name="Boar Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/Boar/BOAR" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  <block name="BossGrace Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/Boar/AnimalBossGrace" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  <!--	<block name="Bear Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/BEAR/bear_Prefab" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  	<block name="ZombieBear Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/ZOMBIEBEAR/ZombieBear" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  	<block name="Wolf Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/Wolf" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  	<block name="Coyote Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/Wolf/COYOTE" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  	<block name="DireWolf Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/wolf/DIREWOLF" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  	<block name="MountainLion Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/MOUNTAIN_LION/Mountain_Lion" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  	<block name="ZombieVulture Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/ZombieVulture/ZOMBIEVULTURE" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  	<block name="ZombieVultureRadiated Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/ZombieVultureRadiated/ZOMBIEVULTURERADIATED" />
+    <drop event="Destroy" count="0" />
+  </block>
+  
+  	<block name="ZombieDog Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="Entities/Animals/Dog/DOG_Prefab" />
+    <drop event="Destroy" count="0" />
+  </block>	
+  
+  	
+  
+  	<block name="supplyPlane Trough">
+	<property name="CustomIcon" value="cntStorageChest" />
+    <property name="Material" value="Morganic" />
+    <property name="Shape" value="ModelEntity" />
+	<property name="Model" value="SupplyPlane" />
+    <drop event="Destroy" count="0" />
+  </block> -->
+</append>
+</Valmar>
