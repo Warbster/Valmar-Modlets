@@ -33,43 +33,43 @@
  
  <setattribute xpath="/recipes/recipe[@name='apparelGhillieSuitPants']" name="craft_area">ArmoryWorkBench</setattribute>
 
- <setattribute xpath="/recipes/recipe[@name='modClothingStoragePocket']" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modClothingStoragePocket']" name="craft_area">ArmoryWorkBench</setattribute>
  
- <setattribute xpath="/recipes/recipe[@name='modClothingCargoStoragePocket']" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modClothingCargoStoragePocket']" name="craft_area">ArmoryWorkBench</setattribute>
   <!--
- <setattribute xpath="/recipes/recipe[@name='modArmorDoubleStoragePocket' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modArmorDoubleStoragePocket' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
  
-  <setattribute xpath="/recipes/recipe[@name='modArmorHelmetLight' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='modArmorHelmetLight' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
  
- <setattribute xpath="/recipes/recipe[@name='modArmorImpactBracing' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modArmorImpactBracing' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
  
-  <setattribute xpath="/recipes/recipe[@name='modArmorInsulatedLiner' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='modArmorInsulatedLiner' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
  
- <setattribute xpath="/recipes/recipe[@name='modArmorMuffledConnectors' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modArmorMuffledConnectors' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
   
- <setattribute xpath="/recipes/recipe[@name='modArmorPlatingBasic' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modArmorPlatingBasic' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
  
-  <setattribute xpath="/recipes/recipe[@name='modArmorPlatingReinforced' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='modArmorPlatingReinforced' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
  
-  <setattribute xpath="/recipes/recipe[@name='modArmorStoragePocket' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='modArmorStoragePocket' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
   
- <setattribute xpath="/recipes/recipe[@name='modArmorTripleStoragePocket' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modArmorTripleStoragePocket' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
  
-  <setattribute xpath="/recipes/recipe[@name='modArmorWaterPurifier' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+  <setattribute xpath="/recipes/recipe[@name='modArmorWaterPurifier' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
  
- <setattribute xpath="/recipes/recipe[@name='modArmorImprovedFittings' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modArmorImprovedFittings' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
 
- <setattribute xpath="/recipes/recipe[@name='modFuelTankLarge' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modFuelTankLarge' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
  
- <setattribute xpath="/recipes/recipe[@name='modFuelTankSmall' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modFuelTankSmall' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
 
- <setattribute xpath="/recipes/recipe[@name='modArmorCustomizedFittings' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modArmorCustomizedFittings' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
 
- <setattribute xpath="/recipes/recipe[@name='modArmorCoolingMesh' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modArmorCoolingMesh' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
  
- <setattribute xpath="/recipes/recipe[@name='modArmorBandolier' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+ <setattribute xpath="/recipes/recipe[@name='modArmorBandolier' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
 
-<setattribute xpath="/recipes/recipe[@name='modArmorAdvancedMuffledConnectors' and not @craft_area]" name="craft_area">workstationArmory</setattribute>
+<setattribute xpath="/recipes/recipe[@name='modArmorAdvancedMuffledConnectors' and not @craft_area]" name="craft_area">ArmoryWorkBench</setattribute>
 -->
 
  <append xpath="/recipes">
