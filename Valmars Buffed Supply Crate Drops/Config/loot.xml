@@ -461,7 +461,6 @@
         <item name="meleeToolChainsaw"/>  
         <item name="meleeToolAuger"/>  
         <item name="meleeToolKnifeMachete"/>     
-        <item name="meleeToolHoeIron"/> 
 		<item name="meleeToolPaintTool" />
 		<item name="meleeToolWireTool"/>
         </lootgroup>
